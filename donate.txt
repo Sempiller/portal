@@ -1,0 +1,9 @@
+ltc: LhpAYK4i8AUBPedVqz7MyzKWrpRt7mLXHx
+btc: bc1qa6p0f9vqmagwmzjyvwu8ndczhcsshj4xm8a3vv
+xrp: r3cvRB8UMcDPTznoowR3zQKgGH6nuvdZx6
+usdc eth: 0xBC34B5708c998E77536F7f475ccc204716496648
+sol: 4nG3Uo3yLXt1LusT3CHRh6JesbJEBZDDgTNijMKmpXtu
+doge: D9DMdmyJsnBeDQP97bAzGkXHbEbwcBQmYa
+eth: 0xBC34B5708c998E77536F7f475ccc204716496648
+
+pls donate

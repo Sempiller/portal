@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playground | portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --fg: #ffffff;
+            --dim: #666666;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 4rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { max-width: 850px; width: 100%; }
+
+        header { margin-bottom: 5rem; animation: fadeIn 0.8s ease; }
+        .back-link { 
+            text-decoration: none; color: var(--dim); font-size: 0.75rem; 
+            text-transform: uppercase; letter-spacing: 2px; transition: var(--transition);
+        }
+        .back-link:hover { color: var(--fg); letter-spacing: 3px; }
+        
+        h1 { font-size: 2.5rem; font-weight: 600; margin-top: 1rem; letter-spacing: -1.5px; }
+
+        .section-label {
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 4px;
+            color: var(--dim); margin: 3rem 0 1.5rem 0; display: block;
+            border-bottom: 1px solid var(--border); padding-bottom: 8px;
+        }
+
+        .project-grid { display: grid; gap: 1.5rem; }
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .card:hover { border-color: #444; background: rgba(255,255,255,0.05); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .card-title { font-size: 1.2rem; font-weight: 600; }
+        .card-date { font-size: 0.7rem; color: var(--dim); font-family: 'Fira Code', monospace; }
+        .card-desc { font-size: 0.9rem; color: #aaa; font-weight: 300; margin-bottom: 1.5rem; }
+
+        .code-container {
+            background: #000;
+            padding: 1.2rem;
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: #7efaff;
+            word-break: break-all;
+            display: block;
+            padding-right: 60px;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+            color: var(--dim); font-size: 0.6rem; cursor: pointer; padding: 4px 8px;
+            border-radius: 4px; transition: var(--transition);
+        }
+        .copy-btn:hover { color: var(--fg); border-color: var(--dim); }
+
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+        .archive-item {
+            padding: 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--fg);
+            transition: var(--transition);
+            background: transparent;
+        }
+        .archive-item:hover {
+            background: var(--glass);
+            border-color: var(--fg);
+            transform: translateY(-2px);
+        }
+        .archive-item .name { font-weight: 600; font-size: 0.95rem; display: block; }
+        .archive-item .desc { font-size: 0.75rem; color: var(--dim); display: block; margin: 4px 0 10px 0; }
+        .archive-item .tag {
+            font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;
+            padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,0.05);
+            color: #888;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <a href="index.html" class="back-link">Return to Portal</a>
+        <h1>Playground</h1>
+    </header>
+
+    <span class="section-label">Active Deployments</span>
+    
+    <div class="project-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Lithium</span>
+                <span class="card-date">2026.03.18</span>
+            </div>
+            <p class="card-desc">Roblox Script Project by sempiller, akri, lithium.</p>
+            <div class="code-container">
+                <code id="lith">loadstring(game:HttpGet("https://raw.githubusercontent.com/Sempiller/Lithium/refs/heads/main/main.lua"))()</code>
+                <button class="copy-btn" onclick="copyCode('lith')">COPY</button>
+            </div>
+        </div>
+    </div>
+
+    <span class="section-label">GitHub Archive</span>
+    <div class="archive-grid">
+        
+        <a href="https://github.com/Eclipse-FSS/eagle" target="_blank" class="archive-item">
+            <span class="name">EagleWare</span>
+            <span class="desc">Multitool Utility</span>
+            <span class="tag">HTML</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/dodo-nuker" target="_blank" class="archive-item">
+            <span class="name">Dodo Nuker</span>
+            <span class="desc">Discord Server Nuker</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/eaglewaretermux" target="_blank" class="archive-item">
+            <span class="name">EagleWare Termux</span>
+            <span class="desc">For Termux Users</span>
+            <span class="tag">JS</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/Horizon-Nuker" target="_blank" class="archive-item">
+            <span class="name">Horizon-Nuker</span>
+            <span class="desc">Discord Nuker</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/hatchify" target="_blank" class="archive-item">
+            <span class="name">Hatchify</span>
+            <span class="desc">Advanced IP Logger</span>
+            <span class="tag">JS</span>
+        </a>
+
+        <a href="https://github.com/Sempiller/kebabware/refs/heads/main/out%20(1).lua%20(6).txt" target="_blank" class="archive-item">
+            <span class="name">KebabWare</span>
+            <span class="desc">Lost Media Archive</span>
+            <span class="tag">Raw</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/sinject" target="_blank" class="archive-item">
+            <span class="name">sinject</span>
+            <span class="desc">Python Script</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/PyHammer" target="_blank" class="archive-item">
+            <span class="name">PyHammer</span>
+            <span class="desc">HTTP Attacker</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/zyron" target="_blank" class="archive-item">
+            <span class="name">zyron</span>
+            <span class="desc">Zyron Free DoS</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/nglipser" target="_blank" class="archive-item">
+            <span class="name">nglipser</span>
+            <span class="desc">Ngl Spammer</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/Monkeytacker" target="_blank" class="archive-item">
+            <span class="name">Monkeytacker</span>
+            <span class="desc">DoS & Attack Tool</span>
+            <span class="tag">Python</span>
+        </a>
+
+        <a href="https://github.com/Eclipse-FSS/eagleware" target="_blank" class="archive-item">
+            <span class="name">EagleWare Legacy</span>
+            <span class="desc">Old Style DoS Tool</span>
+            <span class="tag">JS</span>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    function copyCode(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = event.target;
+            btn.innerText = 'COPIED';
+            setTimeout(() => btn.innerText = 'COPY', 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
